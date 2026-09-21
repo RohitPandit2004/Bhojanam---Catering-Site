@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fbf7f0;
+  color: #241914;
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+}
+
+::selection {
+  background-color: #e8a33d;
+  color: #33101a;
+}
+
+*:focus-visible {
+  outline: 2px solid #7a1f3d;
+  outline-offset: 2px;
+}
+
+/* thali ring motif — concentric rings echoing a steel thali plate */
+.thali-ring {
+  border-radius: 9999px;
+  border: 1px solid rgba(200, 155, 60, 0.5);
+}
+
+.rule {
+  border-top: 1px solid rgba(122, 106, 93, 0.25);
+}
+
+/* splash screen */
+@keyframes splash-ring-in {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes splash-dot-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.7; }
+}
+@keyframes splash-text-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.splash-ring {
+  opacity: 0;
+  animation: splash-ring-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.splash-dot {
+  opacity: 0;
+  animation: splash-text-in 0.4s ease-out 0.4s forwards, splash-dot-pulse 1.4s ease-in-out 0.9s infinite;
+}
+.splash-text {
+  /* animation-delay is set inline per element (see Splash.jsx) */
+  opacity: 0;
+  animation: splash-text-in 0.5s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
