@@ -64,6 +64,18 @@ h1, h2, h3, h4, .font-display {
   animation: splash-text-in 0.5s ease-out forwards;
 }
 
+/* hero carousel: continuous film-roll scroll */
+@keyframes film-roll {
+  from { transform: translateX(var(--film-start)); }
+  to { transform: translateX(var(--film-end)); }
+}
+.film-roll-track {
+  animation-name: film-roll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

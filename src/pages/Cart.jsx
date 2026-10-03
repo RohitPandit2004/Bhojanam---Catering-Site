@@ -52,10 +52,15 @@ export default function Cart() {
       </div>
 
       <div className="flex justify-between mt-4">
-        <button onClick={clearCart} className="text-sm text-muted hover:text-chili">Empty cart</button>
+        <button
+          onClick={clearCart}
+          className="text-sm font-semibold text-chili border border-chili/40 rounded-thali px-4 py-2 hover:bg-chili hover:text-white hover:border-chili transition-colors"
+        >
+          Empty cart
+        </button>
       </div>
 
-      <div className="mt-8 max-w-sm ml-auto space-y-2">
+      <div className="mt-8 max-w-sm mx-auto space-y-2">
         <div className="flex justify-between text-sm text-ink/70">
           <span>Subtotal</span>
           <span>₹{subtotal}</span>
